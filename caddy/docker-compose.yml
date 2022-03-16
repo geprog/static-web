@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  caddy:
+    image: caddy
+    environment:
+      - DOMAIN=static.localhost
+    ports:
+      - "8022:80"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./sites:/srv/

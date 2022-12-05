@@ -4,11 +4,15 @@
 
 *.{$DOMAIN}:80 {
 	root * /srv
-	rewrite * /{labels.2}{uri}
+	rewrite * /{labels.2}/files/{uri}
 	file_server
 
 	handle_errors {
 		rewrite * /404.html
 		file_server
 	}
+}
+
+api.{$DOMAIN}:80 {
+	redirect localhost:1323
 }
